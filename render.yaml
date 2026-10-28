@@ -1,0 +1,17 @@
+
+services:
+  - type: worker
+    name: f0rextradingbot
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TWELVEDATA_API_KEY
+        sync: false
+      - key: TIMEFRAME
+        value: 1h
+      - key: LOG_LEVEL
+        value: INFO
